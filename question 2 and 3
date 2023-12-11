@@ -46,17 +46,7 @@ front++;
  case 2:
  exit(0);
  default:
- printf("enter correct choice\n");
+RETURN 0;
  }
  }
-}
-
-
-/* to push a character into stack */
-void push(char a)
-{
- top++;
- stack[top] = a;
-}
-
 }
