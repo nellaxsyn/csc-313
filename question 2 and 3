@@ -58,8 +58,5 @@ void push(char a)
  top++;
  stack[top] = a;
 }
-/* to delete an element in stack */
-void pop()
-{
- top--;
+
 }
