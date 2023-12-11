@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+  double data;
+  struct Node* next;
+} Node;
+
+Node* newNode(double data) {
+  Node* new_node = (Node*)malloc(sizeof(Node));
+  if (!new_node) {
+    printf("Memory allocation failed!\n");
+    exit(1);
+  }
+  new_node->data = data;
+  new_node->next = NULL;
+  return new_node;
+}
+
+void push(Node** head, double data) {
+  Node* new_node = newNode(data);
+
+  new_node->next = *head;
+
+  *head = new_node;
+}
+
+void printStack(Node* head) {
+  printf("Stack: ");
+  while (head) {
+    printf("%.2lf -> ", head->data);
+    head = head->next;
+  }
+  printf("NULL\n");
+}
+
+int main() {
+  Node* head = NULL; // Initially, the stack is empty
+
+  push(&head, 1.39);
+  push(&head, 4.28);
+  push(&head, 7.74);
+
+  printStack(head);
+
+  return 0;
+}
